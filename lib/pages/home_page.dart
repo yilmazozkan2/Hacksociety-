@@ -37,6 +37,7 @@ class _homePageState extends State<homePage> {
           primarySwatch: Colors.blue,
           fontFamily: 'Noto'),
       home: Scaffold(
+        backgroundColor: Colors.white,
         body: SafeArea(
           child: Column(
             children: <Widget>[
