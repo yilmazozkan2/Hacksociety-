@@ -1,2 +1,1 @@
-The purpose of this application is to bring together those who know hacking and those who do not, 
-and to teach those who do not know how to hack.
+The purpose of this application is to bring together those who know hacking and those who do not, and to teach those who do not know about hacking and if there are friends who want to update this application, please contact me at yilmazozkan2002@gmail.com
