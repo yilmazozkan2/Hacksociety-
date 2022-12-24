@@ -19,7 +19,6 @@ class _homePageState extends State<homePage> {
   final db = FirebaseFirestore.instance;
   var output;
   var output2;
-
   String name = '';
   String etiket = '';
   var tag;
@@ -28,6 +27,7 @@ class _homePageState extends State<homePage> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       theme: ThemeData(
           brightness: Brightness.light,
           primarySwatch: Colors.blue,
@@ -81,14 +81,14 @@ class _homePageState extends State<homePage> {
                 child: Row(
                   children: [
                     Text(
-                      'Hackersociety ',
+                      'Hacksociety ',
                       style: TextStyle(
                           fontFamily: 'Noto',
                           fontSize: 20,
                           fontWeight: FontWeight.bold),
                     ),
                     Text(
-                      '<|',
+                      '>|',
                       style: TextStyle(
                           fontSize: 20,
                           fontFamily: 'Noto',
@@ -127,7 +127,7 @@ class _homePageState extends State<homePage> {
                     style: TextStyle(
                         fontFamily: 'Noto',
                         fontSize: 17,
-                        fontWeight: FontWeight.w400)),
+                        fontWeight: FontWeight.w500)),
               ),
               Divider(color: Colors.blue, height: 2, thickness: 2),
               Expanded(
@@ -201,27 +201,30 @@ class _homePageState extends State<homePage> {
                                             child: CircularProgressIndicator());
                                       },
                                     ),
-                                    Column(
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.start,
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.start,
-                                      children: [
-                                        Text(myPost['KullaniciEposta'],
-                                            style: TextStyle(
-                                                fontFamily: 'Noto',
-                                                fontWeight: FontWeight.bold)),
-                                        Text(
-                                            DateFormat('dd/MM/yyyy - HH:mm')
-                                                .format(
-                                              myPost['paylasimTarihi'].toDate(),
-                                            ),
-                                            style: TextStyle(
-                                                fontFamily: 'Noto',
-                                                fontWeight: FontWeight.normal)),
-                                      ],
+                                    Expanded(
+                                      child: Column(
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.start,
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.start,
+                                        children: [
+                                          Text(myPost['KullaniciEposta'],
+                                              style: TextStyle(
+                                                  fontFamily: 'Noto',
+                                                  fontWeight: FontWeight.bold)),
+                                          Text(
+                                              DateFormat('dd/MM/yyyy - HH:mm')
+                                                  .format(
+                                                myPost['paylasimTarihi']
+                                                    .toDate(),
+                                              ),
+                                              style: TextStyle(
+                                                  fontFamily: 'Noto',
+                                                  fontWeight:
+                                                      FontWeight.normal)),
+                                        ],
+                                      ),
                                     ),
-                                    SizedBox(width: 130),
                                     PopupMenuButton(
                                         icon: Icon(
                                           Icons.g_translate,
@@ -439,7 +442,7 @@ class _homePageState extends State<homePage> {
                                     style: TextStyle(
                                         fontFamily: 'Noto',
                                         fontSize: 17,
-                                        fontWeight: FontWeight.w400),
+                                        fontWeight: FontWeight.w500),
                                   ),
                                 ),
                                 Padding(
@@ -473,7 +476,7 @@ class _homePageState extends State<homePage> {
       ),
     );
   }
-
+  
   void initiateSearch(String val) {
     setState(() {
       name = val.toLowerCase().trim();
