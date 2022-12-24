@@ -103,52 +103,74 @@ class _IskeleState extends State<Iskele> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      theme: ThemeData(fontFamily: 'Noto'),
+      debugShowCheckedModeBanner: false,
+      theme: ThemeData(
+          brightness: Brightness.light,
+          primarySwatch: Colors.blue,
+          fontFamily: 'Noto'),
+      darkTheme: ThemeData(
+          brightness: Brightness.light,
+          primarySwatch: Colors.blue,
+          fontFamily: 'Noto'),
       home: Material(
         color: Colors.white,
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Wrap(
-              crossAxisAlignment: WrapCrossAlignment.center,
-              children: [
-                Text(
-                  'selectlanguage'.tr,
-                  style: TextStyle(
-                      fontSize: 18,
-                      fontFamily: 'Noto',
-                      fontWeight: FontWeight.bold),
-                ),
-                IconButton(
-                    onPressed: () {
-                      builddialog(context);
-                    },
-                    icon: Icon(Icons.language)),
-              ],
+            Padding(
+              padding: const EdgeInsets.only(right: 32),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: [
+                  Wrap(
+                    crossAxisAlignment: WrapCrossAlignment.center,
+                    children: [
+                      Text(
+                        'selectlanguage'.tr,
+                        style: TextStyle(
+                            fontSize: 18,
+                            fontFamily: 'Noto',
+                            color: Colors.black,
+                            fontWeight: FontWeight.bold),
+                      ),
+                      IconButton(
+                          onPressed: () {
+                            builddialog(context);
+                          },
+                          icon: Icon(Icons.language),
+                          color: Colors.blue),
+                    ],
+                  ),
+                ],
+              ),
             ),
-            Row(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Text(
-                  'Hackersociety',
-                  style: TextStyle(
-                      fontFamily: 'Noto',
-                      fontSize: 34,
-                      fontWeight: FontWeight.bold),
-                ),
-                SizedBox(
-                  width: 10,
-                ),
-                Text(
-                  '<|',
-                  style: TextStyle(
-                      fontSize: 38,
-                      fontFamily: 'Noto',
-                      fontWeight: FontWeight.bold,
-                      color: Colors.blue),
-                ),
-              ],
+            Padding(
+              padding: const EdgeInsets.only(top: 20.0),
+              child: Row(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text(
+                    'Hacksociety',
+                    style: TextStyle(
+                        fontFamily: 'Noto',
+                        fontSize: 34,
+                        color: Colors.black,
+                        fontWeight: FontWeight.w500),
+                  ),
+                  SizedBox(
+                    width: 8,
+                  ),
+                  Text(
+                    '>|',
+                    style: TextStyle(
+                        fontSize: 38,
+                        fontFamily: 'Noto',
+                        fontWeight: FontWeight.w500,
+                        color: Colors.blue),
+                  ),
+                ],
+              ),
             ),
             Padding(
               padding: const EdgeInsets.only(top: 34.0),
@@ -161,6 +183,7 @@ class _IskeleState extends State<Iskele> {
                     SizedBox(
                       width: 300,
                       child: TextField(
+                        keyboardType: TextInputType.emailAddress,
                         decoration: InputDecoration(
                           filled: true,
                           fillColor: Colors.white,
@@ -169,7 +192,7 @@ class _IskeleState extends State<Iskele> {
                             child: Icon(Icons.email),
                             width: 18,
                           ),
-                          hintText: "enteryouremail".tr,
+                          hintText: "name@example.com",
                           border: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(0),
                           ),
@@ -184,18 +207,18 @@ class _IskeleState extends State<Iskele> {
                       width: 300,
                       child: TextField(
                         decoration: InputDecoration(
-                          filled: true,
-                          fillColor: Colors.white,
-                          prefixIcon: Container(
-                            padding: EdgeInsets.all(15),
-                            child: Icon(Icons.password),
-                            width: 18,
-                          ),
-                          hintText: "enteryourpassword".tr,
-                          border: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(0),
-                          ),
-                        ),
+                            filled: true,
+                            fillColor: Colors.white,
+                            prefixIcon: Container(
+                              padding: EdgeInsets.all(15),
+                              child: Icon(Icons.password),
+                              width: 18,
+                            ),
+                            hintText: "******",
+                            border: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(0),
+                                borderSide:
+                                    BorderSide(color: Colors.black, width: 8))),
                         controller: textController2,
                       ),
                     ),
@@ -204,7 +227,7 @@ class _IskeleState extends State<Iskele> {
               ),
             ),
             Padding(
-              padding: const EdgeInsets.only(top: 20.0),
+              padding: const EdgeInsets.only(top: 40.0),
               child: Row(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -218,7 +241,7 @@ class _IskeleState extends State<Iskele> {
                               fontSize: 18,
                               fontWeight: FontWeight.bold,
                               color: Colors.blue))),
-                  SizedBox(width: 10),
+                  SizedBox(width: 30),
                   ElevatedButton(
                       onPressed: () {
                         girisYap();
