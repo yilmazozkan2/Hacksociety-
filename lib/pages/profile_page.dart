@@ -215,6 +215,7 @@ class _KullaniciyaAitState extends State<KullaniciyaAit> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       theme: ThemeData(brightness: Brightness.light, fontFamily: 'Noto'),
       darkTheme: ThemeData(brightness: Brightness.dark, fontFamily: 'Noto'),
       home: Scaffold(
