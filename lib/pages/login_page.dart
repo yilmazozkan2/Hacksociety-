@@ -104,14 +104,6 @@ class _IskeleState extends State<Iskele> {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-          brightness: Brightness.light,
-          primarySwatch: Colors.blue,
-          fontFamily: 'Noto'),
-      darkTheme: ThemeData(
-          brightness: Brightness.light,
-          primarySwatch: Colors.blue,
-          fontFamily: 'Noto'),
       home: Material(
         color: Colors.white,
         child: Column(
@@ -151,23 +143,12 @@ class _IskeleState extends State<Iskele> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text(
-                    'Hacksociety',
+                    'Hack Learning Platform',
                     style: TextStyle(
                         fontFamily: 'Noto',
                         fontSize: 34,
                         color: Colors.black,
                         fontWeight: FontWeight.w500),
-                  ),
-                  SizedBox(
-                    width: 8,
-                  ),
-                  Text(
-                    '>|',
-                    style: TextStyle(
-                        fontSize: 38,
-                        fontFamily: 'Noto',
-                        fontWeight: FontWeight.w500,
-                        color: Colors.blue),
                   ),
                 ],
               ),
