@@ -32,10 +32,6 @@ class _homePageState extends State<homePage> {
           brightness: Brightness.light,
           primarySwatch: Colors.blue,
           fontFamily: 'Noto'),
-      darkTheme: ThemeData(
-          brightness: Brightness.dark,
-          primarySwatch: Colors.blue,
-          fontFamily: 'Noto'),
       home: Scaffold(
         backgroundColor: Colors.white,
         body: SafeArea(
@@ -81,19 +77,11 @@ class _homePageState extends State<homePage> {
                 child: Row(
                   children: [
                     Text(
-                      'Hacksociety ',
+                      'Hack Learning Platform',
                       style: TextStyle(
                           fontFamily: 'Noto',
-                          fontSize: 20,
+                          fontSize: 16,
                           fontWeight: FontWeight.bold),
-                    ),
-                    Text(
-                      '>|',
-                      style: TextStyle(
-                          fontSize: 20,
-                          fontFamily: 'Noto',
-                          fontWeight: FontWeight.bold,
-                          color: Colors.blue),
                     ),
                     Flexible(
                       child: Padding(
