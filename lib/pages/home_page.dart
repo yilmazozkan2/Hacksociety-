@@ -77,7 +77,7 @@ class _homePageState extends State<homePage> {
                 child: Row(
                   children: [
                     Text(
-                      'Hack Learning Platform',
+                      'Android Hack Tool Posts',
                       style: TextStyle(
                           fontFamily: 'Noto',
                           fontSize: 16,
