@@ -2,7 +2,7 @@
     package="com.aizensoftwares.hacksociety">
    <application
    
-        android:label="Hack Learning Platform"
+        android:label="Android Hack Tool Posts"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity
