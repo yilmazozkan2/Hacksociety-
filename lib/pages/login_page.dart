@@ -1,4 +1,5 @@
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
@@ -36,7 +37,10 @@ class _IskeleState extends State<Iskele> {
     Get.back();
     Get.updateLocale(locale);
   }
-
+  signInAnon()async{
+    UserCredential auth = await FirebaseAuth.instance.signInAnonymously();
+    return auth;
+  }
   builddialog(BuildContext context) {
     showDialog(
         context: context,
@@ -143,7 +147,7 @@ class _IskeleState extends State<Iskele> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text(
-                    'Hack Learning Platform',
+                    'Android Hack Tool Posts',
                     style: TextStyle(
                         fontFamily: 'Noto',
                         fontSize: 34,
@@ -173,7 +177,7 @@ class _IskeleState extends State<Iskele> {
                             child: Icon(Icons.email),
                             width: 18,
                           ),
-                          hintText: "name@example.com",
+                          hintText: "Email adress",
                           border: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(0),
                           ),
@@ -195,7 +199,7 @@ class _IskeleState extends State<Iskele> {
                               child: Icon(Icons.password),
                               width: 18,
                             ),
-                            hintText: "******",
+                            hintText: "Pass",
                             border: OutlineInputBorder(
                                 borderRadius: BorderRadius.circular(0),
                                 borderSide:
@@ -235,6 +239,21 @@ class _IskeleState extends State<Iskele> {
                 ],
               ),
             ),
+            ElevatedButton(
+                onPressed: () {
+                  FirebaseAuth.instance.signInAnonymously().then((UserCredential user){
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => homePage()),
+                    );
+                  });
+
+                },
+                child: Text('Login as Guest'.tr,
+                    style: TextStyle(
+                        fontSize: 24,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.white))),
           ],
         ),
       ),
